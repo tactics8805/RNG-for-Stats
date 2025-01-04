@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Random Number Generator</title>
+  </head>
+  <body>
+    <h2>Random Number Generator</h2>
+    <p id="result">Press the spacebar to begin the program!</p>
+
+    <script>
+      function resetProgram() {
+        document.getElementById("result").innerText = "Press 'i' for a random integer from 1 to 100. Press 'r' for a real number from 1 to 100.";
+      }
+
+      document.addEventListener('keydown', function(event) {
+        const min = 1;
+        const max = 100;
+        const randomNum = Math.random() * (max - min) + min;
+        const randomInt = Math.round(randomNum);
+        const resultElement = document.getElementById("result");
+
+        if (event.key === 'i') {
+          resultElement.innerText = "Random Integer: " + randomInt;
+        } else if (event.key === 'r') {
+          resultElement.innerText = "Random Number: " + randomNum.toFixed(2);
+        } else if (event.key === ' ') {
+          resetProgram();
+        }
+      });
+    </script>
+  </body>
+</html>
